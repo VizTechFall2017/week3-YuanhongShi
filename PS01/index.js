@@ -17,12 +17,12 @@ for (i = 0; i < 30; i++){
 
 function circle_ring(myArray, i, j, r){
 
-    for (j = 0; j < 5; j++){
-        r = 20 * j;
+    for (j = 0; j < 10; j++){
+        r = 21 * j;
         for (i = 0; i < 30; i++){
             var seta = 2 * Math.PI / 30 * i ;
             //console.log(seta);
-            var object = {cx: 250 + (50 + r) * Math.cos(seta), cy: 250 + (50 + r) * Math.sin(seta), r: 5 + j};
+            var object = {cx: 250 + (50 + r) * Math.cos(seta), cy: 250 + (50 + r) * Math.sin(seta), r:  2 + j};
 
             myArray.push(object);
             //console.log(myArray[i].cx);
