@@ -101,9 +101,9 @@ svg.append('rect')
     .attr('y', 0)
     .attr('width', 500)
     .attr('height', 500)
-    .attr('fill', 'white')
     .attr('stroke', '#F9F649')
-    .attr('stroke-width', 8);
+    .attr('stroke-width', 8)
+    .attr('fill', 'none');
 
 
 svg.selectAll('circle')
@@ -155,9 +155,19 @@ svg.append('circle')
             .ease(d3.easeBounce);
     })
     .on('click', function(){
+
         d3.selectAll('circle')
 
             .transition()
             .duration(2500)
-            .attr('transform', 'rotate(15,250,250)');
+            .attr('transform', 'rotate(15,250,250)')
+            .attr('fill', 'pink')
+            .ease(d3.easeBounce);
+        d3.selectAll('rect')
+            .transition()
+            .delay(500)
+            .duration(2500)
+            .attr('fill', 'gray')
+            .attr('opacity', 0.5)
+            .attr('stroke', 'pink');
     });
