@@ -111,7 +111,6 @@ svg.selectAll('circle')
     .enter()
     .append('circle')
     .attr('cx', function(d){
-
         return d.cx;
     })
     .attr('cy', function(d){
@@ -124,10 +123,41 @@ svg.selectAll('circle')
         return d.fill;
     });
 
+function click_circle(){
+    d3.selectAll('circle')
+        .transition()
 
+
+}
 
 svg.append('circle')
     .attr('cx', 250)
     .attr('cy', 250)
     .attr('r', 15)
-    .attr('fill', '#F9F649');
+    .attr('fill', '#F9F649')
+    .on('mouseover', function() {
+        d3.select(this)
+            .transition()
+            .style('fill', 'pink')
+            .attr('r', 45)
+            .delay(500)
+            .duration(2500)
+            .ease(d3.easeBounce);
+
+})
+    .on('mouseout', function(){
+        d3.select(this)
+            .transition()
+            .style('fill', '#F9F649')
+            .attr('r', 15)
+            .delay(500)
+            .duration(2500)
+            .ease(d3.easeBounce);
+    })
+    .on('click', function(){
+        d3.selectAll('circle')
+
+            .transition()
+            .duration(2500)
+            .attr('transform', 'rotate(15,250,250)');
+    });
