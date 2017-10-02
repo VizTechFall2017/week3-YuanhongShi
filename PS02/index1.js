@@ -28,8 +28,26 @@ d3.csv('./data_circle.csv', function(dataIn){
         .attr('stroke-width', function(d){
             return d.strokew;
         })
-        .on('mouseover', handleMouseover(d))
-        .on('mouseout', handleMouseout(d));
+        .on('mouseover', function(d){
+                if(d.r * 2 >= 250){
+                    d3.select(this)
+                        .attr('r', 250)
+                        .attr('fill', 'orange');
+                }
+                else{
+                    d3.select(this)
+                        .attr('r', d.r * 2)
+                        .attr('fill', 'orange')
+
+                }
+
+        })
+        .on('mouseout', function(d){
+            d3.select(this)
+                .attr('fill', d.fill)
+                .attr('r', d.r);
+
+        });
 });
 
 
@@ -69,20 +87,6 @@ d3.csv('./data_rect.csv', function(dataRect){
 });
 
 
-function handleMouseOver(d) {  // Add interactivity
-
-    // Use D3 to select element, change color and size
-    d3.select(this)
-        .attr('fill', "orange")
-        .attr('r', d.r * 2 );
-    }
-
-    function handleMouseOut(d) {
-        // Use D3 to select element, change color back to normal
-        d3.select(this)
-            .attr('fill', "black")
-            .attr('r', d.r );
-    }
 
 
 
