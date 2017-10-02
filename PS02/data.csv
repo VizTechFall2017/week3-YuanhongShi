@@ -1,8 +1,8 @@
-x,y,r,fill
-140,78,10,pink
-20,400,50,pink
-93,75,6,pink
-75,10,15,green
-250,200,9,blue
-400,400,12,yellow
-72,325,35,magenta
+x,y,width,height,fill
+140,78,10,20,pink
+20,400,50,20,pink
+10,75,6,20,purple
+75,10,15,20,green
+250,90,9,20,blue
+300,400,30,20,yellow
+72,325,35,20,black
