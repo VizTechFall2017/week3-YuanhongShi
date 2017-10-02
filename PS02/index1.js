@@ -2,18 +2,18 @@ var svg = d3.select('svg');
 
 /* Your code goes here */
 
-d3.csv('./data_circle.csv', function(dataIn){
+d3.csv('data_circle.csv', function(dataIn){
     //console.log(dataIn);
     svg.selectAll('circle')
         .data(dataIn)
         .enter()
         .append('circle')
         .attr('cx', function(d){
-            //console.log(d.x);
-            return d.x;
+            console.log(d.cx);
+            return d.cx;
         })
         .attr('cy', function(d){
-            return d.y;
+            return d.cy;
         })
         .attr('r', function(d){
             return d.r;
@@ -22,24 +22,27 @@ d3.csv('./data_circle.csv', function(dataIn){
             return d.fill;
             //console.log(d.fill);
         })
-        .attr('stroke', function(d){
+        /*.attr('stroke', function(d){
             return d.stroke;
         })
         .attr('stroke-width', function(d){
             return d.strokew;
+        })*/
+        .attr('opacity', function(d){
+            return d.opacity;
         })
         .on('mouseover', function(d){
-                if(d.r * 2 >= 250){
-                    d3.select(this)
-                        .attr('r', 250)
-                        .attr('fill', 'orange');
-                }
-                else{
-                    d3.select(this)
-                        .attr('r', d.r * 2)
-                        .attr('fill', 'orange')
+            if(d.r * 2 >= 250){
+                d3.select(this)
+                    .attr('r', 250)
+                    .attr('fill', 'orange');
+            }
+            else{
+                d3.select(this)
+                    .attr('r', d.r * 1.2)
+                    .attr('fill', 'orange')
 
-                }
+            }
 
         })
         .on('mouseout', function(d){
@@ -53,7 +56,7 @@ d3.csv('./data_circle.csv', function(dataIn){
 
 
 
-d3.csv('./data_rect.csv', function(dataRect){
+d3.csv('data_rect.csv', function(dataRect){
     svg.selectAll('rect')
         .data(dataRect)
         .enter()
