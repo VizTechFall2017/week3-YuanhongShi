@@ -101,7 +101,7 @@ d3.select('#Reset_r')
     .on('click', function(){
         d3.selectAll('rect')
             .transition()
-            .attr('transform', 'scale(0.85)');
+            .attr('transform', 'scale(1)');
     });
 
 
